@@ -1,0 +1,30 @@
+{
+    "projects": [
+      {
+        "name": "frontend",
+        "src": "frontend",
+        "dist": "frontend/build"
+      },
+      {
+        "name": "backend",
+        "src": "backend",
+        "functions": {
+          "api/server.js": {
+            "memory": 1024,
+            "maxDuration": 30
+          }
+        },
+        "routes": [
+          {
+            "src": "/(.*)",
+            "dest": "frontend/build/index.html"
+          },
+          {
+            "src": "/api/(.*)",
+            "dest": "/api/server.js"
+          }
+        ]
+      }
+    ]
+  }
+  
